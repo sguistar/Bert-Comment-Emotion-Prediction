@@ -1,0 +1,11 @@
+altair
+jieba
+joblib
+matplotlib
+numpy
+pandas
+Pillow
+scikit-learn
+streamlit
+torch
+transformers

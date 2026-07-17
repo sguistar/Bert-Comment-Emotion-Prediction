@@ -1,0 +1,104 @@
+{
+  "status": "completed",
+  "schema_version": 2,
+  "label_order": [
+    "负向",
+    "中性",
+    "正向"
+  ],
+  "config": {
+    "train_csv": "D:\\PycharmProjects\\Python Practice\\Movie Comments\\outputs\\sentiment\\v2\\splits\\train.csv",
+    "valid_csv": "D:\\PycharmProjects\\Python Practice\\Movie Comments\\outputs\\sentiment\\v2\\splits\\valid.csv",
+    "test_csv": "",
+    "model_name": "outputs\\sentiment\\v2\\experiments\\rating5_mix1000pc_ordinal_seed42\\best_model",
+    "label_order": "负向,中性,正向",
+    "ignore_mismatched_head": true,
+    "text_pair_column": "",
+    "output_dir": "D:\\PycharmProjects\\Python Practice\\Movie Comments\\outputs\\sentiment\\v2\\experiments\\rating5mix_to_canonical3_ce_lr1e5_seed42",
+    "max_length": 384,
+    "batch_size": 16,
+    "eval_batch_size": 32,
+    "epochs": 8,
+    "lr": 1e-05,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.1,
+    "grad_accum": 1,
+    "loss": "ce",
+    "label_smoothing": 0.0,
+    "class_weight_mode": "none",
+    "focal_gamma": 2.0,
+    "ordinal_lambda": 0.5,
+    "patience": 2,
+    "seed": 42,
+    "precision": "bf16",
+    "limit_train": 0,
+    "scheduler": "cosine",
+    "resolved_precision": "bf16"
+  },
+  "dataset_rows": {
+    "train": 1495,
+    "valid": 321,
+    "test": null
+  },
+  "best_epoch": 5,
+  "best_valid_macro_f1": 0.7077149239598429,
+  "valid_metrics": {
+    "accuracy": 0.7414330218068536,
+    "macro_precision": 0.7121059998021945,
+    "macro_recall": 0.7071783638048698,
+    "macro_f1": 0.7077149239598429,
+    "weighted_f1": 0.7440456042601465,
+    "per_class": {
+      "负向": {
+        "precision": 0.7391304347826086,
+        "recall": 0.6538461538461539,
+        "f1": 0.6938775510204082,
+        "support": 78
+      },
+      "中性": {
+        "precision": 0.550561797752809,
+        "recall": 0.6363636363636364,
+        "f1": 0.5903614457831325,
+        "support": 77
+      },
+      "正向": {
+        "precision": 0.8466257668711656,
+        "recall": 0.8313253012048193,
+        "f1": 0.8389057750759878,
+        "support": 166
+      }
+    },
+    "loss": 1.1282119988652404
+  },
+  "test_evaluated": false,
+  "runtime_seconds": 87.774,
+  "optimizer_steps": 658,
+  "warmup_steps": 75,
+  "gpu_memory": {
+    "initial": {
+      "device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+      "total_bytes": 17094475776,
+      "free_bytes": 15775825920,
+      "total_gib": 15.92,
+      "free_gib": 14.692
+    },
+    "final": {
+      "device_name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+      "total_bytes": 17094475776,
+      "free_bytes": 14754512896,
+      "total_gib": 15.92,
+      "free_gib": 13.741
+    },
+    "peak_allocated_bytes": 3823019008,
+    "peak_reserved_bytes": 4540334080,
+    "peak_allocated_gib": 3.56,
+    "peak_reserved_gib": 4.229
+  },
+  "artifacts": {
+    "best_model": "D:\\PycharmProjects\\Python Practice\\Movie Comments\\outputs\\sentiment\\v2\\experiments\\rating5mix_to_canonical3_ce_lr1e5_seed42\\best_model",
+    "training_log": "D:\\PycharmProjects\\Python Practice\\Movie Comments\\outputs\\sentiment\\v2\\experiments\\rating5mix_to_canonical3_ce_lr1e5_seed42\\training_log.csv",
+    "valid_predictions": "D:\\PycharmProjects\\Python Practice\\Movie Comments\\outputs\\sentiment\\v2\\experiments\\rating5mix_to_canonical3_ce_lr1e5_seed42\\valid_predictions.csv",
+    "classification_report_valid": "D:\\PycharmProjects\\Python Practice\\Movie Comments\\outputs\\sentiment\\v2\\experiments\\rating5mix_to_canonical3_ce_lr1e5_seed42\\classification_report_valid.csv",
+    "confusion_matrix_valid": "D:\\PycharmProjects\\Python Practice\\Movie Comments\\outputs\\sentiment\\v2\\experiments\\rating5mix_to_canonical3_ce_lr1e5_seed42\\confusion_matrix_valid.png"
+  }
+}

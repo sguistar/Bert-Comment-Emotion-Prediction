@@ -1,0 +1,86 @@
+{
+  "status": "completed",
+  "schema_version": 2,
+  "label_order": [
+    "负向",
+    "中性",
+    "正向"
+  ],
+  "method": "fixed_weight_probability_blend_then_class_factor_calibration",
+  "config": {
+    "sources": [
+      "ensemble_embedding_rating5_baseline_calibrated_v1",
+      "rating5mix500_to_canonical3_ce_lr1e5_seed42",
+      "cumbce_to_canonical3_ce_lr1e5_seed42"
+    ],
+    "weights": [
+      0.9,
+      0.075,
+      0.025
+    ],
+    "class_factors": [
+      0.95,
+      0.95,
+      1.0
+    ],
+    "selection_note": "limited_validation_grid_max_5_underlying_members",
+    "experiment_root": "D:\\PycharmProjects\\Python Practice\\Movie Comments\\outputs\\sentiment\\bert-v2\\experiments",
+    "output_dir": "D:\\PycharmProjects\\Python Practice\\Movie Comments\\outputs\\sentiment\\bert-v2\\experiments\\ensemble_diverse_weighted_calibrated_v2"
+  },
+  "dataset_rows": {
+    "valid": 321,
+    "test": null
+  },
+  "valid_metrics": {
+    "accuracy": 0.8037383177570093,
+    "macro_precision": 0.7818439852021942,
+    "macro_recall": 0.7565118950661119,
+    "macro_f1": 0.7668852374707501,
+    "weighted_f1": 0.7995378170748617,
+    "per_class": {
+      "负向": {
+        "precision": 0.7910447761194029,
+        "recall": 0.6794871794871795,
+        "f1": 0.7310344827586207,
+        "support": 78
+      },
+      "中性": {
+        "precision": 0.7083333333333334,
+        "recall": 0.6623376623376623,
+        "f1": 0.6845637583892618,
+        "support": 77
+      },
+      "正向": {
+        "precision": 0.8461538461538461,
+        "recall": 0.927710843373494,
+        "f1": 0.8850574712643678,
+        "support": 166
+      }
+    }
+  },
+  "confusion_matrix": [
+    [
+      53,
+      11,
+      14
+    ],
+    [
+      12,
+      51,
+      14
+    ],
+    [
+      2,
+      10,
+      154
+    ]
+  ],
+  "test_evaluated": false,
+  "selection_bias_warning": "Weights and class factors were selected on this same fixed validation set; test remains sealed until the target is met and stability is verified.",
+  "artifacts": {
+    "valid_predictions": "D:\\PycharmProjects\\Python Practice\\Movie Comments\\outputs\\sentiment\\bert-v2\\experiments\\ensemble_diverse_weighted_calibrated_v2\\valid_predictions.csv",
+    "classification_report_valid": "D:\\PycharmProjects\\Python Practice\\Movie Comments\\outputs\\sentiment\\bert-v2\\experiments\\ensemble_diverse_weighted_calibrated_v2\\classification_report_valid.csv",
+    "confusion_matrix_valid_csv": "D:\\PycharmProjects\\Python Practice\\Movie Comments\\outputs\\sentiment\\bert-v2\\experiments\\ensemble_diverse_weighted_calibrated_v2\\confusion_matrix_valid.csv",
+    "confusion_matrix_valid": "D:\\PycharmProjects\\Python Practice\\Movie Comments\\outputs\\sentiment\\bert-v2\\experiments\\ensemble_diverse_weighted_calibrated_v2\\confusion_matrix_valid.png"
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "pipeline": "prepare_sentiment_v2.py",
+  "parameters": {
+    "seed": 42,
+    "external_per_class": 50000,
+    "canonical_split": [
+      0.7,
+      0.15,
+      0.15
+    ],
+    "external_policy": "training-only; never included in canonical valid/test",
+    "low_information_policy": "after project text cleaning, require at least two Chinese/Latin/digit characters"
+  },
+  "sources": {
+    "canonical": {
+      "name": "project canonical Douban comments",
+      "source_url": "https://movie.douban.com/",
+      "input_path": "assets/data/douban_comments.csv",
+      "input_sha256": "a119281a2480bec91b61777701f7e4c836e78f74b5cee714f54e07a25e89d61c"
+    },
+    "external": {
+      "name": "Douban Movie Short Comments Dataset",
+      "source_url": "https://www.kaggle.com/datasets/utmhikari/doubanmovieshortcomments?select=DMSC.csv",
+      "license": {
+        "name": "CC0 1.0 Universal (Public Domain Dedication)",
+        "spdx": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "input_path": "assets/data/external/DMSC.csv",
+      "input_sha256": "62d47511061726f1243e83e7589ef637c7e5fc9301dd7321fa118111666bdaf6"
+    }
+  },
+  "canonical_processing": {
+    "raw_rows": 2260,
+    "structured_rows": 2139,
+    "featured_rows": 2139,
+    "canonical_overlap_universe_texts": 2139,
+    "low_information_rows_removed": 2,
+    "duplicate_clean_text_rows_removed": 0,
+    "output_rows": 2137,
+    "class_counts": {
+      "负向": 519,
+      "中性": 512,
+      "正向": 1106
+    },
+    "existing_cleaning_summary": {
+      "raw_rows": 2260,
+      "raw_columns": [
+        "电影名称",
+        "用户名",
+        "评分",
+        "评论时间",
+        "IP地址",
+        "评论内容"
+      ],
+      "before_missing": {
+        "电影名称": 0,
+        "用户名": 0,
+        "评分": 0,
+        "评论时间": 0,
+        "评论内容": 0,
+        "评分不可解析": 88
+      },
+      "duplicate_rows_removed": 33,
+      "invalid_time_rows_removed": 0,
+      "out_of_scope_year_rows_removed": 17,
+      "unrated_rows_removed": 71,
+      "empty_required_rows_removed": 0,
+      "missing_user_filled": 1,
+      "ip_missing_rate": 1.0,
+      "cleaned_rows": 2139,
+      "rows_removed_total": 121
+    },
+    "existing_feature_summary": {
+      "feature_rows": 2139,
+      "long_comment_threshold": 165.0,
+      "positive_threshold": 4.0,
+      "negative_threshold": 2.0,
+      "top_word_count": 80,
+      "sentiment_counts": {
+        "正向": 1107,
+        "负向": 520,
+        "中性": 512
+      }
+    }
+  },
+  "external_processing": {
+    "raw_rows": 2125056,
+    "empty_text_rows_removed": 2561,
+    "low_information_rows_removed": 12286,
+    "invalid_star_rows_removed": 0,
+    "canonical_overlap_rows_removed": 67,
+    "duplicate_clean_text_rows_removed": 166795,
+    "eligible_unique_class_counts": {
+      "负向": 334304,
+      "中性": 442049,
+      "正向": 1166994
+    },
+    "sampled_rows": 150000,
+    "sampled_class_counts": {
+      "负向": 50000,
+      "中性": 50000,
+      "正向": 50000
+    },
+    "sampling_method": "smallest SHA256(seed + row_id) rank per class"
+  },
+  "outputs": {
+    "data/canonical.csv": {
+      "path": "outputs/sentiment/v2/data/canonical.csv",
+      "sha256": "e1cba94c3ebc3921baad4239e8350a0d122952d860e9b7977bbd30df5ce9fd2f",
+      "rows": 2137,
+      "class_counts": {
+        "负向": 519,
+        "中性": 512,
+        "正向": 1106
+      },
+      "columns": [
+        "text",
+        "label",
+        "movie",
+        "row_id",
+        "source"
+      ],
+      "encoding": "utf-8-sig"
+    },
+    "data/external_train.csv": {
+      "path": "outputs/sentiment/v2/data/external_train.csv",
+      "sha256": "f06c0f7fb8b27ac15515fe657703b421e5a919c633a57ef7e798e11c28c18e9d",
+      "rows": 150000,
+      "class_counts": {
+        "负向": 50000,
+        "中性": 50000,
+        "正向": 50000
+      },
+      "columns": [
+        "text",
+        "label",
+        "movie",
+        "row_id",
+        "source"
+      ],
+      "encoding": "utf-8-sig"
+    },
+    "splits/train.csv": {
+      "path": "outputs/sentiment/v2/splits/train.csv",
+      "sha256": "d1fc30fee1b6f5615dfa9802084e902f8590d2f124202d8a800737748beaa63c",
+      "rows": 1495,
+      "class_counts": {
+        "负向": 363,
+        "中性": 358,
+        "正向": 774
+      },
+      "columns": [
+        "text",
+        "label",
+        "movie",
+        "row_id",
+        "source"
+      ],
+      "encoding": "utf-8-sig"
+    },
+    "splits/valid.csv": {
+      "path": "outputs/sentiment/v2/splits/valid.csv",
+      "sha256": "d662d6de1342762e2f4cafa19f4b4b90564cff5b963871db80e196ab9b9e7b52",
+      "rows": 321,
+      "class_counts": {
+        "负向": 78,
+        "中性": 77,
+        "正向": 166
+      },
+      "columns": [
+        "text",
+        "label",
+        "movie",
+        "row_id",
+        "source"
+      ],
+      "encoding": "utf-8-sig"
+    },
+    "splits/test.csv": {
+      "path": "outputs/sentiment/v2/splits/test.csv",
+      "sha256": "d6d92fbd2ac1eb46d510fbd4aee3aa1d2ce639dd1fcdebaa6f2149db5de8d506",
+      "rows": 321,
+      "class_counts": {
+        "负向": 78,
+        "中性": 77,
+        "正向": 166
+      },
+      "columns": [
+        "text",
+        "label",
+        "movie",
+        "row_id",
+        "source"
+      ],
+      "encoding": "utf-8-sig"
+    }
+  },
+  "overlap_checks": {
+    "passed": true,
+    "split_row_id_intersections": {
+      "train_valid": 0,
+      "train_test": 0,
+      "valid_test": 0
+    },
+    "split_text_intersections": {
+      "train_valid": 0,
+      "train_test": 0,
+      "valid_test": 0
+    },
+    "external_overlap": {
+      "all_canonical_original_text": 0,
+      "canonical_text": 0,
+      "canonical_row_id": 0,
+      "train_text": 0,
+      "valid_text": 0,
+      "test_text": 0
+    },
+    "split_actual_ratios": {
+      "train": 0.699579,
+      "valid": 0.150211,
+      "test": 0.150211
+    },
+    "canonical_reconstructed_by_splits": true,
+    "all_frames_unique_by_row_id_and_text": true,
+    "external_is_training_only": true
+  }
+}

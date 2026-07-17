@@ -1,0 +1,398 @@
+{
+  "status": "completed",
+  "schema_version": 2,
+  "label_order": [
+    "负向",
+    "中性",
+    "正向"
+  ],
+  "config": {
+    "train_csv": "D:\\PycharmProjects\\Python Practice\\Movie Comments\\outputs\\sentiment\\bert-v2\\splits\\train.csv",
+    "valid_csv": "D:\\PycharmProjects\\Python Practice\\Movie Comments\\outputs\\sentiment\\bert-v2\\splits\\valid.csv",
+    "model_name": "outputs\\sentiment\\bert-v2\\experiments\\rating5mix_to_canonical3_ce_lr1e5_seed42\\best_model",
+    "output_dir": "D:\\PycharmProjects\\Python Practice\\Movie Comments\\outputs\\sentiment\\bert-v2\\experiments\\frozen_embedding_clspmean_bestencoder_seed42",
+    "max_length": 384,
+    "batch_size": 64,
+    "seed": 42,
+    "feature": "concat(cls, masked_mean), l2-normalized"
+  },
+  "dataset_rows": {
+    "train": 1495,
+    "valid": 321,
+    "test": null
+  },
+  "best_classifier": "logreg_c0.1_none",
+  "valid_metrics": {
+    "accuracy": 0.7445482866043613,
+    "macro_precision": 0.718089133533252,
+    "macro_recall": 0.7116183682448742,
+    "macro_f1": 0.7116153153387197,
+    "weighted_f1": 0.7468109264191984,
+    "per_class": {
+      "负向": {
+        "precision": 0.7424242424242424,
+        "recall": 0.6282051282051282,
+        "f1": 0.6805555555555556,
+        "support": 78
+      },
+      "中性": {
+        "precision": 0.5652173913043478,
+        "recall": 0.6753246753246753,
+        "f1": 0.6153846153846154,
+        "support": 77
+      },
+      "正向": {
+        "precision": 0.8466257668711656,
+        "recall": 0.8313253012048193,
+        "f1": 0.8389057750759878,
+        "support": 166
+      }
+    }
+  },
+  "candidate_results": [
+    {
+      "name": "logreg_c0.1_none",
+      "accuracy": 0.7445482866043613,
+      "macro_precision": 0.718089133533252,
+      "macro_recall": 0.7116183682448742,
+      "macro_f1": 0.7116153153387197,
+      "weighted_f1": 0.7468109264191984,
+      "per_class": {
+        "负向": {
+          "precision": 0.7424242424242424,
+          "recall": 0.6282051282051282,
+          "f1": 0.6805555555555556,
+          "support": 78
+        },
+        "中性": {
+          "precision": 0.5652173913043478,
+          "recall": 0.6753246753246753,
+          "f1": 0.6153846153846154,
+          "support": 77
+        },
+        "正向": {
+          "precision": 0.8466257668711656,
+          "recall": 0.8313253012048193,
+          "f1": 0.8389057750759878,
+          "support": 166
+        }
+      }
+    },
+    {
+      "name": "linearsvc_c0.01_none",
+      "accuracy": 0.7445482866043613,
+      "macro_precision": 0.718089133533252,
+      "macro_recall": 0.7116183682448742,
+      "macro_f1": 0.7116153153387197,
+      "weighted_f1": 0.7468109264191984,
+      "per_class": {
+        "负向": {
+          "precision": 0.7424242424242424,
+          "recall": 0.6282051282051282,
+          "f1": 0.6805555555555556,
+          "support": 78
+        },
+        "中性": {
+          "precision": 0.5652173913043478,
+          "recall": 0.6753246753246753,
+          "f1": 0.6153846153846154,
+          "support": 77
+        },
+        "正向": {
+          "precision": 0.8466257668711656,
+          "recall": 0.8313253012048193,
+          "f1": 0.8389057750759878,
+          "support": 166
+        }
+      }
+    },
+    {
+      "name": "linearsvc_c0.01_balanced",
+      "accuracy": 0.7383177570093458,
+      "macro_precision": 0.7131456070135315,
+      "macro_recall": 0.7076023039878461,
+      "macro_f1": 0.7062115672809314,
+      "weighted_f1": 0.7423725278616965,
+      "per_class": {
+        "负向": {
+          "precision": 0.7424242424242424,
+          "recall": 0.6282051282051282,
+          "f1": 0.6805555555555556,
+          "support": 78
+        },
+        "中性": {
+          "precision": 0.5416666666666666,
+          "recall": 0.6753246753246753,
+          "f1": 0.6011560693641619,
+          "support": 77
+        },
+        "正向": {
+          "precision": 0.8553459119496856,
+          "recall": 0.8192771084337349,
+          "f1": 0.8369230769230769,
+          "support": 166
+        }
+      }
+    },
+    {
+      "name": "logreg_c1.0_none",
+      "accuracy": 0.7383177570093458,
+      "macro_precision": 0.7114436973399667,
+      "macro_recall": 0.7076578040433462,
+      "macro_f1": 0.704828738512949,
+      "weighted_f1": 0.7427709460567306,
+      "per_class": {
+        "负向": {
+          "precision": 0.7272727272727273,
+          "recall": 0.6153846153846154,
+          "f1": 0.6666666666666666,
+          "support": 78
+        },
+        "中性": {
+          "precision": 0.5408163265306123,
+          "recall": 0.6883116883116883,
+          "f1": 0.6057142857142858,
+          "support": 77
+        },
+        "正向": {
+          "precision": 0.8662420382165605,
+          "recall": 0.8192771084337349,
+          "f1": 0.8421052631578947,
+          "support": 166
+        }
+      }
+    },
+    {
+      "name": "linearsvc_c0.1_none",
+      "accuracy": 0.7320872274143302,
+      "macro_precision": 0.7092433809137738,
+      "macro_recall": 0.703641739786318,
+      "macro_f1": 0.7005750850127622,
+      "weighted_f1": 0.7377242033004128,
+      "per_class": {
+        "负向": {
+          "precision": 0.7384615384615385,
+          "recall": 0.6153846153846154,
+          "f1": 0.6713286713286714,
+          "support": 78
+        },
+        "中性": {
+          "precision": 0.5247524752475248,
+          "recall": 0.6883116883116883,
+          "f1": 0.5955056179775281,
+          "support": 77
+        },
+        "正向": {
+          "precision": 0.864516129032258,
+          "recall": 0.8072289156626506,
+          "f1": 0.8348909657320872,
+          "support": 166
+        }
+      }
+    },
+    {
+      "name": "logreg_c0.1_balanced",
+      "accuracy": 0.7289719626168224,
+      "macro_precision": 0.707235248411719,
+      "macro_recall": 0.701633707657804,
+      "macro_f1": 0.698252480759464,
+      "weighted_f1": 0.7350433075600151,
+      "per_class": {
+        "负向": {
+          "precision": 0.7384615384615385,
+          "recall": 0.6153846153846154,
+          "f1": 0.6713286713286714,
+          "support": 78
+        },
+        "中性": {
+          "precision": 0.5196078431372549,
+          "recall": 0.6883116883116883,
+          "f1": 0.5921787709497207,
+          "support": 77
+        },
+        "正向": {
+          "precision": 0.8636363636363636,
+          "recall": 0.8012048192771084,
+          "f1": 0.83125,
+          "support": 166
+        }
+      }
+    },
+    {
+      "name": "linearsvc_c0.1_balanced",
+      "accuracy": 0.7258566978193146,
+      "macro_precision": 0.7052565810989568,
+      "macro_recall": 0.69962567552929,
+      "macro_f1": 0.6959345890380373,
+      "weighted_f1": 0.7323594739965994,
+      "per_class": {
+        "负向": {
+          "precision": 0.7384615384615385,
+          "recall": 0.6153846153846154,
+          "f1": 0.6713286713286714,
+          "support": 78
+        },
+        "中性": {
+          "precision": 0.5145631067961165,
+          "recall": 0.6883116883116883,
+          "f1": 0.5888888888888889,
+          "support": 77
+        },
+        "正向": {
+          "precision": 0.8627450980392157,
+          "recall": 0.7951807228915663,
+          "f1": 0.8275862068965517,
+          "support": 166
+        }
+      }
+    },
+    {
+      "name": "linearsvc_c1.0_none",
+      "accuracy": 0.7258566978193146,
+      "macro_precision": 0.7054993252361674,
+      "macro_recall": 0.69962567552929,
+      "macro_f1": 0.6957175698966589,
+      "weighted_f1": 0.7329248590974674,
+      "per_class": {
+        "负向": {
+          "precision": 0.7384615384615385,
+          "recall": 0.6153846153846154,
+          "f1": 0.6713286713286714,
+          "support": 78
+        },
+        "中性": {
+          "precision": 0.5096153846153846,
+          "recall": 0.6883116883116883,
+          "f1": 0.585635359116022,
+          "support": 77
+        },
+        "正向": {
+          "precision": 0.868421052631579,
+          "recall": 0.7951807228915663,
+          "f1": 0.8301886792452831,
+          "support": 166
+        }
+      }
+    },
+    {
+      "name": "logreg_c10.0_none",
+      "accuracy": 0.7289719626168224,
+      "macro_precision": 0.6983961851919599,
+      "macro_recall": 0.6992017353463137,
+      "macro_f1": 0.6955585405594135,
+      "weighted_f1": 0.734836958905987,
+      "per_class": {
+        "负向": {
+          "precision": 0.704225352112676,
+          "recall": 0.6410256410256411,
+          "f1": 0.6711409395973155,
+          "support": 78
+        },
+        "中性": {
+          "precision": 0.5208333333333334,
+          "recall": 0.6493506493506493,
+          "f1": 0.5780346820809249,
+          "support": 77
+        },
+        "正向": {
+          "precision": 0.8701298701298701,
+          "recall": 0.8072289156626506,
+          "f1": 0.8375,
+          "support": 166
+        }
+      }
+    },
+    {
+      "name": "logreg_c10.0_balanced",
+      "accuracy": 0.719626168224299,
+      "macro_precision": 0.7035720011910488,
+      "macro_recall": 0.697875083417252,
+      "macro_f1": 0.6926032262294243,
+      "weighted_f1": 0.7290745270366662,
+      "per_class": {
+        "负向": {
+          "precision": 0.7424242424242424,
+          "recall": 0.6282051282051282,
+          "f1": 0.6805555555555556,
+          "support": 78
+        },
+        "中性": {
+          "precision": 0.49074074074074076,
+          "recall": 0.6883116883116883,
+          "f1": 0.572972972972973,
+          "support": 77
+        },
+        "正向": {
+          "precision": 0.8775510204081632,
+          "recall": 0.7771084337349398,
+          "f1": 0.8242811501597445,
+          "support": 166
+        }
+      }
+    },
+    {
+      "name": "linearsvc_c1.0_balanced",
+      "accuracy": 0.719626168224299,
+      "macro_precision": 0.7017094017094018,
+      "macro_recall": 0.6956096112722618,
+      "macro_f1": 0.6911161513776164,
+      "weighted_f1": 0.7275607717782676,
+      "per_class": {
+        "负向": {
+          "precision": 0.7384615384615385,
+          "recall": 0.6153846153846154,
+          "f1": 0.6713286713286714,
+          "support": 78
+        },
+        "中性": {
+          "precision": 0.5,
+          "recall": 0.6883116883116883,
+          "f1": 0.5792349726775956,
+          "support": 77
+        },
+        "正向": {
+          "precision": 0.8666666666666667,
+          "recall": 0.7831325301204819,
+          "f1": 0.8227848101265823,
+          "support": 166
+        }
+      }
+    },
+    {
+      "name": "logreg_c1.0_balanced",
+      "accuracy": 0.7133956386292835,
+      "macro_precision": 0.6958215649804435,
+      "macro_recall": 0.6915935470152338,
+      "macro_f1": 0.6860134157974093,
+      "weighted_f1": 0.7217952500623311,
+      "per_class": {
+        "负向": {
+          "precision": 0.7272727272727273,
+          "recall": 0.6153846153846154,
+          "f1": 0.6666666666666666,
+          "support": 78
+        },
+        "中性": {
+          "precision": 0.4953271028037383,
+          "recall": 0.6883116883116883,
+          "f1": 0.5760869565217391,
+          "support": 77
+        },
+        "正向": {
+          "precision": 0.8648648648648649,
+          "recall": 0.7710843373493976,
+          "f1": 0.8152866242038217,
+          "support": 166
+        }
+      }
+    }
+  ],
+  "test_evaluated": false,
+  "artifacts": {
+    "classifier": "D:\\PycharmProjects\\Python Practice\\Movie Comments\\outputs\\sentiment\\bert-v2\\experiments\\frozen_embedding_clspmean_bestencoder_seed42\\classifier.pkl",
+    "candidate_results": "D:\\PycharmProjects\\Python Practice\\Movie Comments\\outputs\\sentiment\\bert-v2\\experiments\\frozen_embedding_clspmean_bestencoder_seed42\\candidate_results.csv",
+    "valid_predictions": "D:\\PycharmProjects\\Python Practice\\Movie Comments\\outputs\\sentiment\\bert-v2\\experiments\\frozen_embedding_clspmean_bestencoder_seed42\\valid_predictions.csv",
+    "classification_report_valid": "D:\\PycharmProjects\\Python Practice\\Movie Comments\\outputs\\sentiment\\bert-v2\\experiments\\frozen_embedding_clspmean_bestencoder_seed42\\classification_report_valid.csv",
+    "confusion_matrix_valid": "D:\\PycharmProjects\\Python Practice\\Movie Comments\\outputs\\sentiment\\bert-v2\\experiments\\frozen_embedding_clspmean_bestencoder_seed42\\confusion_matrix_valid.png"
+  }
+}
